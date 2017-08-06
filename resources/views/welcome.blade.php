@@ -11,7 +11,24 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     </head>
     <body>
-      <?php
-      ?>
+      @if($itemCount = count($items))
+        <p>{{ $itemCount }} 종류의 과일이 있습니다.</p>
+      @else
+        <p>엥~ 아무것도 없는데요..</p>
+      @endif
+
+        <ul>
+          @foreach($items as $item)
+            <li>{{ $item }}</li>
+          @endforeach
+        </ul>
+
+        <ul>
+          @forelse($items2 as $item)
+            <li>{{ $item }}</li>
+          @empty
+            <li>엥~ 아무것도 없는데요!</li>
+          @endforelse
+        </ul>
     </body>
 </html>
